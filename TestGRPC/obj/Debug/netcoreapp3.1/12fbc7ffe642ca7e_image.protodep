@@ -1,0 +1,2 @@
+obj\Debug\netcoreapp3.1\protos/Image.cs \
+obj\Debug\netcoreapp3.1\protos/ImageGrpc.cs: protos/image.proto

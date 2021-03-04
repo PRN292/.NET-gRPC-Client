@@ -1,0 +1,38 @@
+syntax="proto3";
+option csharp_namespace = "GrpcImage";
+
+
+message ProcessImageRequest{
+  string id = 1;
+}
+
+message ProcessImageReply{
+  string image = 1;
+  string result = 2;
+}
+
+message CreateEncodingRequest{
+  string user_email = 1;
+  string image = 2;
+}
+
+message CreateEncodingReply{
+  repeated float encoding = 1;
+  string user_email = 2;
+  string image_name = 3;
+}
+
+message DeleteEncodingRequest{
+  string image_name = 1;
+}
+
+message DeleteEncodingReply{
+  int32 count = 1;
+}
+
+service ProcessImage{
+  rpc ProcessImage(ProcessImageRequest) returns (stream ProcessImageReply);
+  rpc CreateEncoding(CreateEncodingRequest) returns (CreateEncodingReply);
+  rpc DeleteEncoding(DeleteEncodingRequest) returns (DeleteEncodingReply);
+
+}
